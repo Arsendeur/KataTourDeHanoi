@@ -12,5 +12,13 @@ public class TestTourDeHanoi {
         assertArrayEquals(new int[]{5, 0, 0}, uneTourDeHanoi.ObtenirEtat());
     }
 
+    @Test
+    public void PeutDeplacerUnDisque()
+    {
+        TourDeHanoi uneTourDeHanoi = new TourDeHanoi(5);
+        uneTourDeHanoi.DeplacerDisque(0, 1);
+        assertArrayEquals(new int[]{4, 1, 0}, uneTourDeHanoi.ObtenirEtat());
+    }
+
 
 }

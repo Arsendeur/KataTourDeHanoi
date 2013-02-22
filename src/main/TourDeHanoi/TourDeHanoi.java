@@ -1,13 +1,18 @@
 package main.TourDeHanoi;
 
 public class TourDeHanoi {
+    private int[] EtatDesTours = {0, 0, 0};
 
-    private int nombreDeDisques;
     public TourDeHanoi(int nombreDeDisques) {
-        this.nombreDeDisques = nombreDeDisques;
+        EtatDesTours[0] = nombreDeDisques;
     }
 
     public int[] ObtenirEtat() {
-        return new int[]{5, 0, 0};
+        return EtatDesTours;
+    }
+
+    public void DeplacerDisque(int TourOuLeDisqueEstContenu, int TourOuLeDisqueDoitEtreDeplacer) {
+        EtatDesTours[TourOuLeDisqueEstContenu] -= 1;
+        EtatDesTours[TourOuLeDisqueDoitEtreDeplacer] += 1;
     }
 }
