@@ -38,8 +38,16 @@ public class TestTourDeHanoi {
     public void PeutRetournerLaGrosseurDuDisqueLePlusHaut()
     {
         uneTourDeHanoi.DeplacerDisque(0, 1);
-        assertEquals(4, uneTourDeHanoi.grosseurDuDernierDisque(0));
-        assertEquals(5, uneTourDeHanoi.grosseurDuDernierDisque(1));
+        assertEquals(2, uneTourDeHanoi.grosseurDuDernierDisque(0));
+        assertEquals(1, uneTourDeHanoi.grosseurDuDernierDisque(1));
+    }
+
+    @Test
+    public void NePeutPasDeplacerUnGrosDisqueSurUnPetitDisque()
+    {
+        uneTourDeHanoi.DeplacerDisque(0, 1);
+        uneTourDeHanoi.DeplacerDisque(0, 1);
+        assertArrayEquals(new int[]{4, 1, 0}, uneTourDeHanoi.ObtenirEtat());
     }
 
 }

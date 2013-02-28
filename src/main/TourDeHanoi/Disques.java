@@ -8,11 +8,11 @@ public class Disques {
 
     Disques(int nombreDeDisques)
     {
-        int grosseurDuDisque = 0;
-        for(int index = 0 ;  index < nombreDeDisques;  index++)
+        int grosseurDuDisque = nombreDeDisques;
+        for(int index = 0;  index < nombreDeDisques;  index++)
         {
-            grosseurDuDisque++;
             listeDeDisques.add(new Disque(grosseurDuDisque));
+            grosseurDuDisque--;
         }
     }
 

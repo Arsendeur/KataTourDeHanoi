@@ -16,12 +16,16 @@ public class TourDeHanoi {
                          EtatDesTours[2].ObtenirNombreDeDisques()};
     }
 
-    public void DeplacerDisque(int TourOuLeDisqueEstContenu, int TourOuLeDisqueDoitEtreDeplacer) {
-        if(TourEstPasVide(TourOuLeDisqueEstContenu))
+    public void DeplacerDisque(int tourOuLeDisqueEstContenu, int tourOuLeDisqueDoitEtreDeplacer) {
+        if(TourEstPasVide(tourOuLeDisqueEstContenu) && disqueADeplacerEstPlusPetit(tourOuLeDisqueEstContenu, tourOuLeDisqueDoitEtreDeplacer))
         {
-            Disque disqueEnleve = EtatDesTours[TourOuLeDisqueEstContenu].enleverUnDisque();
-            EtatDesTours[TourOuLeDisqueDoitEtreDeplacer].ajouterDisque(disqueEnleve);
+            Disque disqueEnleve = EtatDesTours[tourOuLeDisqueEstContenu].enleverUnDisque();
+            EtatDesTours[tourOuLeDisqueDoitEtreDeplacer].ajouterDisque(disqueEnleve);
         }
+    }
+
+    private boolean disqueADeplacerEstPlusPetit(int tourOuLeDisqueEstContenu, int tourOuLeDisqueDoitEtreDeplacer) {
+        return !TourEstPasVide(tourOuLeDisqueDoitEtreDeplacer) || EtatDesTours[tourOuLeDisqueEstContenu].grosseurDuDernienDisque() < EtatDesTours[tourOuLeDisqueDoitEtreDeplacer].grosseurDuDernienDisque();
     }
 
     private boolean TourEstPasVide(int TourOuLeDisqueEstContenu) {
