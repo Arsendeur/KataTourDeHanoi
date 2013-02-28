@@ -12,7 +12,14 @@ public class TourDeHanoi {
     }
 
     public void DeplacerDisque(int TourOuLeDisqueEstContenu, int TourOuLeDisqueDoitEtreDeplacer) {
-        EtatDesTours[TourOuLeDisqueEstContenu] -= 1;
-        EtatDesTours[TourOuLeDisqueDoitEtreDeplacer] += 1;
+        if(TourEstVide(TourOuLeDisqueEstContenu))
+        {
+            EtatDesTours[TourOuLeDisqueEstContenu] -= 1;
+            EtatDesTours[TourOuLeDisqueDoitEtreDeplacer] += 1;
+        }
+    }
+
+    private boolean TourEstVide(int TourOuLeDisqueEstContenu) {
+        return EtatDesTours[TourOuLeDisqueEstContenu] > 0;
     }
 }
