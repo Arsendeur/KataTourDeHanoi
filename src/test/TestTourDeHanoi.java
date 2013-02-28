@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class TestTourDeHanoi {
     private TourDeHanoi uneTourDeHanoi;
@@ -33,5 +34,12 @@ public class TestTourDeHanoi {
         assertArrayEquals(new int[]{5, 0, 0}, uneTourDeHanoi.ObtenirEtat());
     }
 
+    @Test
+    public void PeutRetournerLaGrosseurDuDisqueLePlusHaut()
+    {
+        uneTourDeHanoi.DeplacerDisque(0, 1);
+        assertEquals(4, uneTourDeHanoi.grosseurDuDernierDisque(0));
+        assertEquals(5, uneTourDeHanoi.grosseurDuDernierDisque(1));
+    }
 
 }
